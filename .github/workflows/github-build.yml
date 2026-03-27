@@ -8,6 +8,9 @@ on:
     branches_ignore:
      - gh-pages
   workflow_dispatch:
+    inputs:
+      version:
+        type: string
 
 jobs:
   distribute:
