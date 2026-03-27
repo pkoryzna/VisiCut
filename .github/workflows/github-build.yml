@@ -40,6 +40,12 @@ jobs:
           submodules: "recursive"
           fetch-depth: 0
 
+      - uses: actions/setup-java@v5
+        if: ${{ matrix.os  == "macos-latest" }}
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+
       - name: Build distribution
         run: |
           # we use a separate directory called output to "collect" all the build artifacts
