@@ -18,18 +18,18 @@ jobs:
       fail-fast: false
 
       matrix:
-        # os: 
-        #   - ubuntu-latest
-        # target:
-        #   - zip
-        #   - windows-nsis
-        #   - macos-bundle
-        #   - linux-appimage
-        #   - linux-checkinstall
+        os: 
+          - ubuntu-latest
+        target:
+          - zip
+          - windows-nsis
+          - linux-appimage
+          - linux-checkinstall
         include:
           - os: macos-latest
             target: macos-dmg
-          
+          - os: macos-latest-intel
+            target: macos-dmg
 
     name: Distribute ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
