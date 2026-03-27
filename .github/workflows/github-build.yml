@@ -46,6 +46,10 @@ jobs:
           # this makes uploading the artifacts a *lot* easier
           mkdir output
           pushd output
+          if [ "${{ inputs.version }}" != "" ]; then
+            export VERSION="${{ inputs.version }}"
+          fi
+          
           if [ "${{ matrix.os }}" == "macos-latest" ]; then
             bash ../distribute/distribute.sh ${{ matrix.target }}
           else
