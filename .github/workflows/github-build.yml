@@ -50,8 +50,8 @@ jobs:
             export VERSION="${{ inputs.version }}"
           fi
           
-          if [ "${{ matrix.os }}" == "macos-latest" ]; then
-            bash ../distribute/distribute.sh ${{ matrix.target }}
+          if [ "$(uname)" == "Darwin" ]; then
+            bash -x ../distribute/distribute.sh ${{ matrix.target }}
           else
             bash ../distribute/distribute-docker.sh ${{ matrix.target }}
           fi
